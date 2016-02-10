@@ -729,7 +729,7 @@ def dodged():
         sword_attack = {'slash': 3, 'stab': 2, 'swing': 2, 'throw': 2,
             'assault': 4, 'block': 1}
         multiplier = randint(0, 10)
-        char_attack = raw_input("Do you slash, stab, swing, throw, assault, or block?")
+        char_attack = raw_input("Do you slash, stab, swing, throw, assault, or block?: ")
         if char_attack in sword_attack:
             char_multi = sword_attack[char_attack]
         damage_to_v = multiplier * char_multi
@@ -750,7 +750,7 @@ def dodged():
             print "Lucky you, the Velociraptor missed!"
         else:
             print " "
-            print "The Velociraptor " + v_attack_word + " you and did" + str(damage_by_v) + " damage!"
+            print "The Velociraptor " + v_attack_word + " you and did " + str(damage_by_v) + " damage!"
         velociraptor -= damage_to_v
         character -= damage_by_v
         print "Velociraptor Health: " + str(velociraptor)
@@ -783,7 +783,7 @@ def dodge_fail():
         sword_attack = {'slash': 3, 'stab': 2, 'swing': 2, 'throw': 2,
             'assault': 4, 'block': 1}
         multiplier = randint(0, 10)
-        char_attack = raw_input("Do you slash, stab, swing, throw, assault, or block?")
+        char_attack = raw_input("Do you slash, stab, swing, throw, assault, or block?: ")
         if char_attack in sword_attack:
             char_multi = sword_attack[char_attack]
         damage_to_v = multiplier * char_multi
@@ -804,7 +804,7 @@ def dodge_fail():
             print "Lucky you, the Velociraptor missed!"
         else:
             print " "
-            print "The Velociraptor " + v_attack_word + " you and did" + str(damage_by_v) + " damage!"
+            print "The Velociraptor " + v_attack_word + " you and did " + str(damage_by_v) + " damage!"
         velociraptor -= damage_to_v
         character -= damage_by_v
         print "Velociraptor Health: " + str(velociraptor)
