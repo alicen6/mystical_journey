@@ -3,6 +3,7 @@
 
 from sys import exit
 from random import randint
+import random
 
 
 print "Welcome to the Mystical Journey. Some may have heard that it was a"
@@ -102,7 +103,7 @@ def east():
         print "heard."
         print '"WHO GOES THERE?" the voice booms and you jump, startled.'
         print "You stop, what do you say?"
-        potato_talk = raw_input("just a spud!, nobody!, your king!")
+        potato_talk = raw_input("just a spud!, nobody!, your king!: ")
         print " "
         if potato_talk == "just a spud!":
             print " "
@@ -233,14 +234,185 @@ def north():
         print "goes up in a puff of white smoke!"
         vanish()
 
-# def east_two(): flying
 
-# def vanish(): gnome island
+def east_two():
+    print " "
+    print "That potato was weird. At least now you've gone past it. Continuing"
+    print "eastward on your journey, you soon find yourself at the edge of a"
+    print "body of water. There's no way around the water, but you do see a "
+    print "cave up the beach. There is also a strange swirling hole in the "
+    print "water. Lastly, there seems to be a chicken wandering the beach."
+    print " "
+    east_two_decision = raw_input("cave, water, or chicken: ")
+    if east_two_decision == "cave":
+        print " "
+        print "You go into the cave, it's dark. This journey is turning back"
+        print "into a mostly auditory experience. You slip, you fall, you hit"
+        print "your head."
+        trap_door()
+    elif east_two_decision == "water":
+        print " "
+        print "Interesting. You're going to swim out to a mysterious hole in"
+        print "the water? You're asking for death, so here you go."
+        exit(0)
+    elif east_two_decision == "chicken":
+        print " "
+        print "You get the uncontrollable urge to chase the chicken. Maybe "
+        print "you're just hungry. Of course, the chicken runs from you."
+        print "Once you're out of breath, the chicken approches and challenges"
+        print "you to a game of Rock, Paper, Scissors"
+        beat_chicken = False
+        chicken_round = 1
+        while not beat_chicken:
+            user_choice = raw_input("rock, paper, or scissors?: ")
+            chicken_options = ['rock', 'paper', 'scissors']
+            chicken_choice = random.choice(chicken_options)
+            chicken_round += 1
+            if user_choice == chicken_choice:
+                # chicken_round += 1
+                print " "
+                print "It's a tie! Round " + str(chicken_round)
+            elif user_choice == 'scissors' and chicken_choice == 'rock':
+                # chicken_round += 1
+                print " "
+                print "You lose! Try again! Round " + str(chicken_round)
+            elif user_choice == 'paper' and chicken_choice == 'scissors':
+                # chicken_round += 1
+                print " "
+                print "You lose! Try again! Round " + str(chicken_round)
+            elif user_choice == 'rock' and chicken_choice == 'paper':
+                # chicken_round += 1
+                print " "
+                print "You lose! Try again! Round " + str(chicken_round)
+            else:
+                print " "
+                print "You win! It took " + str(chicken_round) + " rounds!"
+                print "Suddenly the chicken levitates away, leaving behind a"
+                print "small pastry labeled 'EAT ME'."
+                beat_chicken = True
+        print " "
+        eat_me = raw_input("Do you eat the pastry?: ")
+        if eat_me == "yes":
+            print " "
+            print "Your stomach turns after you swallow the pastry whole. That"
+            print "might have been a bad idea. You squeeze your eyes shut in"
+            print "discomfort, and don't notice the white smoke clouds"
+            print "billowing around you."
+            vanish()
+        elif eat_me == "no":
+            print " "
+            print "Horrified at where the pastry could have come from, you "
+            print "turn and throw it into the water. That was gross. Now with"
+            print "nothing left to do, you lay down on the sand and enjoy the"
+            print "rest of your life as a beach bum."
+            exit(0)
+        else:
+            print " "
+            print "Just touching the pastry has given you a bad trip, and you "
+            print "fall over in the sand and die."
+            exit(0)
+    else:
+        print " "
+        print "Okay, so you decided to stay on this beach and live the rest of"
+        print "your life. I've seen worse decisions get made for sure."
+        exit(0)
+
+
+def vanish():
+    print " "
+    print "The last thing you might remember is a cloud of smoke. You find "
+    print "yourself on a very small island, surrounded by gnomes. They tell"
+    print "you the only way off the island is to beat them 5 times in their"
+    print "version of Ro Sham Bo."
+    beat_gnome = 0
+    total_rounds = 0
+
+    while beat_gnome < 5 and total_rounds < 15:
+        user_pick = raw_input("""Pick rock, paper, scissors, dog,
+        lizard, gun, gnome: """)
+        gnome_options = ['rock', 'paper', 'scissors', 'dog', 'lizard', 'gun',
+        'gnome']
+        gnome_pick = random.choice(gnome_options)
+        total_rounds += 1
+        if user_pick == gnome_pick:
+            print " "
+            print "It's a tie! Try again!"
+        elif user_pick == "rock":
+            if gnome_pick == "lizard" or gnome_pick == "gun" or gnome_pick == "scissors":
+                print " "
+                print "You win!"
+                beat_gnome += 1
+            else:
+                print " "
+                print "You lose! Try again!"
+        elif user_pick == "paper":
+            if gnome_pick == "dog" or gnome_pick == "gnome" or gnome_pick == "rock":
+                print " "
+                print "You win!"
+                beat_gnome += 1
+            else:
+                print " "
+                print "You lose! Try again!"
+        elif user_pick == "scissors":
+            if gnome_pick == "lizard" or gnome_pick == "gun" or gnome_pick == "paper":
+                print " "
+                print "You win!"
+                beat_gnome += 1
+            else:
+                print " "
+                print "You lose! Try again!"
+        elif user_pick == "dog":
+            if gnome_pick == "gnome" or gnome_pick == "rock" or gnome_pick == "scissors":
+                print " "
+                print "You win!"
+                beat_gnome += 1
+            else:
+                print " "
+                print "You lose! Try again!"
+        elif user_pick == "lizard":
+            if gnome_pick == "gnome" or gnome_pick == "dog" or gnome_pick == "paper":
+                print " "
+                print "You win!"
+                beat_gnome += 1
+            else:
+                print " "
+                print "You lose! Try again!"
+        elif user_pick == "gun":
+            if gnome_pick == "lizard" or gnome_pick == "dog" or gnome_pick == "paper":
+                print " "
+                print "You win!"
+                beat_gnome += 1
+            else:
+                print " "
+                print "You lose! Try again!"
+        elif user_pick == "gnome":
+            if gnome_pick == "rock" or gnome_pick == "gun" or gnome_pick == "scissors":
+                print " "
+                print "You win!"
+                beat_gnome += 1
+            else:
+                print " "
+                print "You lose! Try again!"
+        else:
+            print " "
+            print "That's not an option, try again."
+    if beat_gnome >= 5:
+        print " "
+        print "You beat the gnomes! They push you through a small hole in the"
+        print "ground, where you begin falling in pitch black darkness."
+        trap_door()
+    elif total_rounds >= 15:
+        print " "
+        print "You lost! The gnomes are now claiming you as their prisoner"
+        print "forever. You'll never be able to leave! :("
+        exit(0)
 
 # def horse(): jousting
 
 # def tiny_horse(): sell it for a price, def in def?
 
-# def west_two(): robots?
+# def west_two(): oregon trail, dysentery
+
+# trap_door(): mole people
 
 choose_class()
