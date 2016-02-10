@@ -46,12 +46,15 @@ def start():
     if start_time == "yes":
         round_one()
     elif start_time == "no":
+        print " "
         print "Are you sure?"
         double_check = raw_input("yes or no?: ")
         if double_check == "yes":
+            print " "
             print "Okay, well maybe next time."
             exit(0)
         elif double_check == "no":
+            print " "
             print "So you are ready!"
             round_one()
         else:
@@ -80,6 +83,7 @@ def round_one():
     elif direction == "north":
         north()
     else:
+        print " "
         print "You passed out from thinking too hard, try again."
 
 
@@ -101,9 +105,11 @@ def east():
         potato_talk = raw_input("just a spud!, nobody!, your king!")
         print " "
         if potato_talk == "just a spud!":
+            print " "
             print 'The potato replies, "Oh, okay! Carry on then!"'
             east_two()
         elif potato_talk == "nobody!":
+            print " "
             print "You have confused the potato, it somehow rolls away."
             east_two()
         elif potato_talk == "your king!":
@@ -113,6 +119,7 @@ def east():
             print "microwave by many small potatoes."
             exit(0)
         else:
+            print " "
             print "The potato and everything else vanishes in a puff of smoke."
             vanish()
     elif potato == "eat it":
@@ -123,9 +130,11 @@ def east():
         print "intestines. You keep walking east."
         east_two()
     elif potato == "throw something":
+        print " "
         print "You missed."
         exit(0)
     else:
+        print " "
         print "Huh. I guess that worked"
         east_two()
 
@@ -142,6 +151,7 @@ def west():
     print " "
     horse_choice = raw_input("take the unicorn or magic liquid?: ")
     if horse_choice == "take the unicorn":
+        print " "
         print "This adventure just gets better and better!"
         horse()
     elif horse_choice == "magic liquid":
@@ -178,7 +188,50 @@ def west():
         exit(0)
 
 
-# def north(): one eyed cat
+def north():
+    print " "
+    print "As you trudge north, you can feel the air getting slightly colder."
+    print "It's not a noticeable amount yet, but you do want a jacket. Before"
+    print "long, you see a black cat with its back facing you. It turns as you"
+    print "approach. The cat has only one eye, and a googly eye where the "
+    print "other one should be."
+    print " "
+    print "'Meow?'"
+    print " "
+    print "The cat shows you three shells at its feet. Lifting one, you can "
+    print "see a marble. The cat wants to play a game."
+    print " "
+    cat_game = raw_input("Will you play the cat's game?: ")
+    if cat_game == "yes":
+        print " "
+        print "The cat indicates that you must choose the shell the marble is "
+        print "under, after it mixes the shells."
+        shell_match = False
+
+        while not shell_match:
+            shell_choice = int(raw_input("Pick 1, 2 or 3: "))
+            marble_loc = randint(1, 3)
+            if shell_choice == marble_loc:
+                print " "
+                print "You got it! The cat looks as defeated as a one-eyed cat"
+                print "can, and pulls a lever that sends you sliding through "
+                print "a trap door."
+                shell_match = True
+            else:
+                print " "
+                print "You failed! The cat laughs at you and forces you to try"
+                print "again"
+        trap_door()
+
+    elif cat_game == "no":
+        print " "
+        print "Before you can even turn around, the cat swallows you whole."
+        exit(0)
+    else:
+        print " "
+        print "You have confused the cat. It sneezes on you and everything "
+        print "goes up in a puff of white smoke!"
+        vanish()
 
 # def east_two(): flying
 
