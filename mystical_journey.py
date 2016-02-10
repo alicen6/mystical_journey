@@ -417,7 +417,7 @@ def horse():
     townspeople = 100
 
     while townspeople > 0:
-        attacks = {'stomp': 1, 'kick': 2, 'pound': '3', 'charge': 4}
+        attacks = {'stomp': 1, 'kick': 2, 'pound': 3, 'charge': 4}
         multiplier = randint(1, 5)
         user_attack = raw_input("Do you stomp, kick, pound or charge?: ")
         if user_attack in attacks:
@@ -434,11 +434,395 @@ def horse():
     trap_door()
 
 
-# def tiny_horse(): sell it for a price, def in def? have to haggle to specific
-# price
+def tiny_horse():
+    print " "
+    print "With tiny horse in tow, you carry on your journey. The tiny horse is"
+    print "not very happy about the circumstances, so it complains constantly."
+    print "Luckily it's not long before you find a ferret with an eye patch."
+    print "The ferret has a sign saying that it will trade a ticket into the"
+    print "city for a ride. The ferret is not excited about the tiny horse, so"
+    print "it makes a deal, if you guess the cost of the ticket, he'll trade."
+    price_match = False
 
-# def west_two(): oregon trail, dysentery
+    while not price_match:
+        print " "
+        ticket_guess = int(raw_input("How much does the ticket cost?: "))
+        ticket_price = 467
+        if ticket_guess < ticket_price:
+            print " "
+            print "That's too low, try again!"
+        elif ticket_guess > ticket_price:
+            print " "
+            print "That's too high, try again!"
+        elif ticket_guess == ticket_price:
+            print " "
+            print "That's right! Here you go!"
+            price_match = True
+        else:
+            "That doesn't work, try again."
+    city()
 
-# trap_door(): mole people ends in final boss
+
+def city():
+    print " "
+    print "You enter the city after handing the tiny horse to the weird ferret."
+    print "Looking around, it appears that nobody lives here, everything is in"
+    print "ruins. The ferret tricked you. You walk through the streets, the "
+    print "air is quiet and dusty. It doesn't take long before you feel like"
+    print "going in circles."
+    city_choice = raw_input("Do you go left or right?: ")
+    if city_choice == "left":
+        print " "
+        print "Heading left, you are overwhelmed by a sudden dust storm and "
+        print "soon fall down a deep, dark hole."
+        trap_door()
+    elif city_choice == "right":
+        print " "
+        print "You continue walking until you've walked clear out of the city."
+        print "For some reason you never stop walking and nobody ever hears"
+        print "from you again."
+        exit(0)
+    else:
+        print " "
+        print "You thought too hard again and passed out from heat exhaustion."
+        exit(0)
+
+
+def west_two():
+    print " "
+    print "You step through the hidden path, going further west. It feels like"
+    print "a whole new adventure. You just keep walking until you come to a "
+    print "river. You can ford the river, or try to live on the bank."
+    print " "
+    river_cross = raw_input("What do you do?: ")
+    if river_cross == "try to live on the bank":
+        death_or_not = ['You died of dysentery.', 'You lived a long and happy life.']
+        outcome = random.choice(death_or_not)
+        if outcome == "You died of dysentery.":
+            print outcome
+            exit(0)
+        else:
+            print outcome
+            exit(0)
+    elif river_cross == "ford the river":
+        rivers = ['1', '2', '3']
+        cross = random.choice(rivers)
+        if cross == "1":
+            print " "
+            print "You successfully forded the river! Sadly, there was only a "
+            print "cliff on the other side. You figure why not at this point "
+            print "and just jump off it."
+            trap_door()
+        elif cross == "2":
+            print " "
+            print "You tried to cross the river and drowned!"
+            exit(0)
+        else:
+            print " "
+            print "You died of dysentery."
+            exit(0)
+    else:
+        print " "
+        print "You died of dysentery before you could accomplish anything."
+        exit(0)
+
+
+def trap_door():
+    print " "
+    print "You find yourself waking up in an underground room. You're not sure"
+    print "what to do, but squinting at one of the walls, you see a plaque."
+    print "On the plaque, you read, 'Good Luck, this is a maze.' That doesn't"
+    print "bode well. The only options in each room are left, right and forward."
+    first_direction = raw_input("Which way?: ")
+    if first_direction == "left":
+        one()
+    elif first_direction == "right":
+        two()
+    elif first_direction == "forward":
+        three()
+    else:
+        print " "
+        print "You tried something the maze didn't like. It murdered you."
+        exit(0)
+
+
+def one():
+    print " "
+    print "This room is unbelievably plain, though it has an almost reddish "
+    print "tinge to it. Weird."
+    room_one = raw_input("Which way?: ")
+    if room_one == "left":
+        two()
+    elif room_one == "right":
+        three()
+    elif room_one == "forward":
+        four()
+    else:
+        print " "
+        print "You tried something the maze didn't like. It murdered you."
+        exit(0)
+
+
+def two():
+    print " "
+    print "The ceiling and walls in this room are twinkling with tiny lights."
+    first_direction = raw_input("Which way?: ")
+    if first_direction == "left":
+        four()
+    elif first_direction == "right":
+        five()
+    elif first_direction == "forward":
+        one()
+    else:
+        print " "
+        print "You tried something the maze didn't like. It murdered you."
+        exit(0)
+
+
+def three():
+    print " "
+    print "This room is cold, all of the walls are made of ice. You want to "
+    print "leave as quickly as possible. Brr."
+    first_direction = raw_input("Which way?: ")
+    if first_direction == "left":
+        six()
+    elif first_direction == "right":
+        two()
+    elif first_direction == "forward":
+        eight()
+    else:
+        print " "
+        print "You tried something the maze didn't like. It murdered you."
+        exit(0)
+
+
+def four():
+    print " "
+    print "It's a dead end! The room is full of bats, all of whom decide you"
+    print "would be a tasty snack."
+    exit(0)
+
+
+def five():
+    print " "
+    print "This room is quite hot, you think about taking your clothes off, "
+    print "but decide to continue to the next room instead."
+    first_direction = raw_input("Which way?: ")
+    if first_direction == "left":
+        eight()
+    elif first_direction == "right":
+        three()
+    elif first_direction == "forward":
+        seven()
+    else:
+        print " "
+        print "You tried something the maze didn't like. It murdered you."
+        exit(0)
+
+
+def six():
+    print " "
+    print "This room is glowing from the walls and floors, everything is purple."
+    print "It's almost too beautiful, but you decide to keep going."
+    first_direction = raw_input("Which way?: ")
+    if first_direction == "left":
+        nine()
+    elif first_direction == "right":
+        five()
+    elif first_direction == "forward":
+        four()
+    else:
+        print " "
+        print "You tried something the maze didn't like. It murdered you."
+        exit(0)
+
+
+def seven():
+    print " "
+    print "You've found a dead end, and a giant spider blocks your path. In a "
+    print "moment the spider traps you in its web and eats you."
+    exit(0)
+
+
+def eight():
+    print " "
+    print "The walls are covered in four leaf clovers, it feels like fate."
+    first_direction = raw_input("Which way?: ")
+    if first_direction == "left":
+        seven()
+    elif first_direction == "right":
+        nine()
+    elif first_direction == "forward":
+        three()
+    else:
+        print " "
+        print "You tried something the maze didn't like. It murdered you."
+        exit(0)
+
+
+def nine():
+    print " "
+    print "This room is foggy somehow. You can barely see your hand in front of"
+    print "your face. You carry on, hoping it's almost the end."
+    first_direction = raw_input("Which way?: ")
+    if first_direction == "left":
+        one()
+    elif first_direction == "right":
+        ten()
+    elif first_direction == "forward":
+        six()
+    else:
+        print " "
+        print "You tried something the maze didn't like. It murdered you."
+        exit(0)
+
+
+def ten():
+    print " "
+    print "You can see the light on the other side of the room! You're finally"
+    print "through the maze! Do you celebrate, or exit the cave?"
+    maze_end = raw_input("Celebrate or exit?: ")
+    if maze_end == "celebrate":
+        print " "
+        print "You slip, fall, and crack your head open on the floor of the"
+        print "maze. So close to the end and you have met your end. Dead."
+        exit(0)
+    elif maze_end == "exit":
+        print " "
+        print "You leave the cave and find yourself in an arena. Uh oh."
+        final_battle()
+    else:
+        print " "
+        print "You should have exited when you had the chance. Now you've done"
+        print "something stupid and gotten yourself killed."
+        exit(0)
+
+
+def final_battle():
+    print " "
+    print "The entrance to the maze behind you slams closed as you turn back"
+    print "around. You can hear people screaming and cheering as another,"
+    print "much larger door slowly starts to open."
+    print "Behind this door is a Velociraptor. And it is going to kill you."
+    print "It starts running towards you, can you dodge?"
+    print " "
+    dodge_roll = int(raw_input("Pick a number 1-5: "))
+    if dodge_roll == 4:
+        print " "
+        print "Success, you dodged! Time to start battling this giant lizard."
+        dodged()
+    else:
+        print " "
+        print "You didn't get out of the way in time, that hurt a lot!"
+        print "Hopefully you do better in the rest of the battle."
+        dodge_fail()
+
+
+def dodged():
+    print " "
+    print "You pick up a sword that happens to be on the ground near you."
+    velociraptor = 250
+    character = 100
+
+    while velociraptor > 0 and character > 0:
+        # user attack
+        sword_attack = {'slash': 3, 'stab': 2, 'swing': 2, 'throw': 2,
+            'assault': 4, 'block': 1}
+        multiplier = randint(0, 10)
+        char_attack = raw_input("Do you slash, stab, swing, throw, assault, or block?")
+        if char_attack in sword_attack:
+            char_multi = sword_attack[char_attack]
+        damage_to_v = multiplier * char_multi
+        # velociraptor attack
+        v_attack = ['bit', 'stomped', 'tail whipped', 'clawed', 'massacred']
+        v_attack_word = random.choice(v_attack)
+        v_multi_a = randint(1, 4)
+        v_multi_b = randint(0, 5)
+        damage_by_v = v_multi_a * v_multi_b
+        if damage_to_v == 0:
+            print " "
+            print "You missed!"
+        else:
+            print " "
+            print " You did " + str(damage_to_v) + " damage!"
+        if damage_by_v == 0:
+            print " "
+            print "Lucky you, the Velociraptor missed!"
+        else:
+            print " "
+            print "The Velociraptor " + v_attack_word + " you and did" + str(damage_by_v) + " damage!"
+        velociraptor -= damage_to_v
+        character -= damage_by_v
+        print "Velociraptor Health: " + str(velociraptor)
+        print "Your Health: " + str(character)
+    if velociraptor <= 0:
+        print " "
+        print "Congratulations! You defeated the Velociraptor! Everyone begins"
+        print "to cheer and chant your name! You are a hero!"
+        print " "
+        print "Suddenly, everything is shaking."
+        print " "
+        print "You eyes fly open to your friend shaking you awake on your couch."
+        print "It was all a dream."
+        exit(0)
+    else:
+        print " "
+        print "The Velociraptor defeated you. You are dead."
+        exit(0)
+
+
+def dodge_fail():
+    print " "
+    print "You pick yourself up after the hit from the velociraptor, and "
+    print "pick up a sword that happens to be on the ground near you."
+    velociraptor = 250
+    character = 80
+
+    while velociraptor > 0 and character > 0:
+        # user attack
+        sword_attack = {'slash': 3, 'stab': 2, 'swing': 2, 'throw': 2,
+            'assault': 4, 'block': 1}
+        multiplier = randint(0, 10)
+        char_attack = raw_input("Do you slash, stab, swing, throw, assault, or block?")
+        if char_attack in sword_attack:
+            char_multi = sword_attack[char_attack]
+        damage_to_v = multiplier * char_multi
+        # velociraptor attack
+        v_attack = ['bit', 'stomped', 'tail whipped', 'clawed', 'massacred']
+        v_attack_word = random.choice(v_attack)
+        v_multi_a = randint(1, 4)
+        v_multi_b = randint(0, 5)
+        damage_by_v = v_multi_a * v_multi_b
+        if damage_to_v == 0:
+            print " "
+            print "You missed!"
+        else:
+            print " "
+            print " You did " + str(damage_to_v) + " damage!"
+        if damage_by_v == 0:
+            print " "
+            print "Lucky you, the Velociraptor missed!"
+        else:
+            print " "
+            print "The Velociraptor " + v_attack_word + " you and did" + str(damage_by_v) + " damage!"
+        velociraptor -= damage_to_v
+        character -= damage_by_v
+        print "Velociraptor Health: " + str(velociraptor)
+        print "Your Health: " + str(character)
+    if velociraptor <= 0:
+        print " "
+        print "Congratulations! You defeated the Velociraptor! Everyone begins"
+        print "to cheer and chant your name! You are a hero!"
+        print " "
+        print "Suddenly, everything is shaking."
+        print " "
+        print "You eyes fly open to your friend shaking you awake on your couch."
+        print "It was all a dream."
+        exit(0)
+    else:
+        print " "
+        print "The Velociraptor defeated you. You are dead."
+        exit(0)
+
 
 choose_class()
