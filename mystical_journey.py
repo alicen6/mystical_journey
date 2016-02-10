@@ -407,12 +407,38 @@ def vanish():
         print "forever. You'll never be able to leave! :("
         exit(0)
 
-# def horse(): jousting
 
-# def tiny_horse(): sell it for a price, def in def?
+def horse():
+    print " "
+    print "You walk with the horse for a while, before coming across a camp."
+    print "All of the people in the camp immediately position to attack you."
+    print "Glancing at your new horse friend, the only option is obvious, you"
+    print "must mount your mighty steed and kill everyone in sight!"
+    townspeople = 100
+
+    while townspeople > 0:
+        attacks = {'stomp': 1, 'kick': 2, 'pound': '3', 'charge': 4}
+        multiplier = randint(1, 5)
+        user_attack = raw_input("Do you stomp, kick, pound or charge?: ")
+        if user_attack in attacks:
+            user_multi = attacks[user_attack]
+        damage_done = multiplier * user_multi
+        print " "
+        print "Townspeople health: " + str(townspeople)
+        print "Damage done: " + str(damage_done)
+        townspeople -= damage_done
+
+    print " "
+    print "You've killed everyone! But with the ground being soaked in blood,"
+    print "a sinkhole suddenly opens up and swallows you whole!"
+    trap_door()
+
+
+# def tiny_horse(): sell it for a price, def in def? have to haggle to specific
+# price
 
 # def west_two(): oregon trail, dysentery
 
-# trap_door(): mole people
+# trap_door(): mole people ends in final boss
 
 choose_class()
