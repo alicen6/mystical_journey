@@ -5,7 +5,6 @@ from sys import exit
 from random import randint
 import random
 
-
 print "Welcome to the Mystical Journey. Some may have heard that it was a"
 print "mostly auditory experience. However, that had much to do with the"
 print "poor lighting. Now with that fixed, we invite you join us on the"
@@ -284,6 +283,9 @@ def east_two():
                 # chicken_round += 1
                 print " "
                 print "You lose! Try again! Round " + str(chicken_round)
+            elif user_choice != 'paper' or user_choice != 'rock' or user_choice != 'scissors':
+                print " "
+                print "You entered something wrong, try again."
             else:
                 print " "
                 print "You win! It took " + str(chicken_round) + " rounds!"
